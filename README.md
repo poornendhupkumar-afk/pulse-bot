@@ -1,80 +1,62 @@
-# 🌤️ Pulse – Daily Summary Bot
+# 🚀 Pulse Bot
 
-An automated Python bot that generates a daily summary containing live weather updates, an inspirational quote, and a random fact. The bot runs automatically using GitHub Actions and sends the summary directly to email.
+Pulse Bot is a Python-based automation project that generates and delivers useful daily information directly to your inbox.
 
----
-
-## 🚀 Features
-
-- 🌦️ Live weather updates using wttr.in API
-- 💡 Daily motivational quotes
-- 🎲 Random interesting facts
-- 📄 Generates a daily summary report
-- 📧 Sends the summary via email automatically
-- ⏰ Scheduled execution using GitHub Actions
-- 🔐 Secure credential management using GitHub Secrets
-- 🛡️ Error handling for API failures
+The project combines API integration, web scraping, email automation, and GitHub Actions to create a fully automated daily information system.
 
 ---
 
-## 📸 Sample Output
+## ✨ Features
 
-```text
----------------------------
-PULSE - Daily Summary
-June 12, 2026
----------------------------
-
-WEATHER
-Thiruvananthapuram: 🌫️ +27°C
-
-RANDOM FACT
-In most watch advertisements the time displayed is 10:10.
-
-TODAY'S QUOTE
-"Don't blame others. It won't make you a better person."
-- Lolly Daskal
-
----------------------------
-```
+* 🌤️ Live weather updates using APIs
+* 💡 Random fact generator
+* 💬 Daily motivational quotes
+* 📧 Automated email delivery using Gmail SMTP
+* ⚠️ Weather alert system using OpenWeatherMap API
+* 📰 Daily News Digest from multiple news sources
+* 🔄 Scheduled execution using GitHub Actions
+* 🔐 Secure credential management using GitHub Secrets
 
 ---
 
 ## 🛠️ Tech Stack
 
-- Python 3.11
-- Requests
-- SMTP Email
-- GitHub Actions
-- GitHub Secrets
-- YAML
+* Python
+* GitHub Actions
+* Requests
+* BeautifulSoup4
+* SMTP Email Automation
+* OpenWeatherMap API
+* GitHub Secrets
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
 ```text
 pulse-bot/
 │
-├── .github/
-│   └── workflows/
-│       └── daily.yml
-│
 ├── bot.py
+├── weather_alert.py
+├── news_digest.py
 ├── requirements.txt
 ├── daily_summary.txt
-└── README.md
+├── README.md
+│
+└── .github/
+    └── workflows/
+        └── daily.yml
 ```
 
 ---
 
-## ⚙️ Installation
+## 🚀 Installation
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/poornendhupkumar-afk/folio.git
-cd folio
+git clone https://github.com/poornendhupkumar-afk/pulse-bot.git
+cd pulse-bot
 ```
 
 Install dependencies:
@@ -91,75 +73,92 @@ python bot.py
 
 ---
 
-## 🔑 Environment Variables
+## ⚙️ GitHub Secrets Required
 
-The project uses GitHub Secrets for secure email authentication.
+Add the following secrets in:
 
-Required secrets:
+Settings → Secrets and Variables → Actions
 
 ```text
 EMAIL_ADDRESS
 EMAIL_PASSWORD
-```
-
-Example:
-
-```text
-EMAIL_ADDRESS = your_email@gmail.com
-EMAIL_PASSWORD = Google App Password
+EMAIL_SENDER
+EMAIL_RECEIVER
+WEATHER_API_KEY
 ```
 
 ---
 
-## 🤖 GitHub Actions Automation
+## 📧 Automated Tasks
 
-The bot is configured to:
+### Daily Summary
 
-- Run automatically every day
-- Generate a fresh summary
-- Send the summary via email
-- Upload the summary as a workflow artifact
+Generates a report containing:
 
-Workflow file:
+* Current weather
+* Random fact
+* Motivational quote
 
-```text
-.github/workflows/daily.yml
-```
+and emails it automatically.
+
+### Weather Alert
+
+Checks weather conditions using OpenWeatherMap API.
+
+If:
+
+* Temperature exceeds 35°C
+* Rain is predicted
+
+an email alert is sent automatically.
+
+### News Digest
+
+Collects top headlines from:
+
+* Hacker News
+* BBC News
+* AP News
+
+and sends a formatted HTML email containing:
+
+* Headlines
+* Publication time
+* Source links
 
 ---
 
-## 📚 What I Learned
+## 🎯 What I Learned
 
-Through this project, I gained hands-on experience with:
+This project helped me gain hands-on experience with:
 
-- Python scripting
-- REST API integration
-- Error handling
-- File handling
-- Email automation
-- GitHub Actions
-- GitHub Secrets
-- Workflow automation
+* Python automation
+* API integration
+* Web scraping
+* Email automation
+* Environment variables
+* GitHub Actions workflows
+* CI/CD concepts
+* Secure secret management
 
 ---
 
 ## 🔮 Future Improvements
 
-- Add currency exchange rates
-- Add news headlines
-- Support multiple recipients
-- Generate HTML email reports
-- Deploy as a cloud service
+* Personalized news categories
+* AI-generated daily summaries
+* Telegram and Discord notifications
+* Multiple city weather monitoring
+* Database storage for reports
 
 ---
 
 ## 👨‍💻 Author
 
-**Poornendhu P Kumar**
+Poornendhu P Kumar
 
-- GitHub: https://github.com/poornendhupkumar-afk
-- LinkedIn: https://www.linkedin.com/in/poornendhu-p-kumar-89aab137b/
+GitHub:
+https://github.com/poornendhupkumar-afk
 
----
-
-⭐ If you found this project interesting, consider giving it a star.
+LinkedIn:
+https://www.linkedin.com/in/poornendhu-p-kumar-89aab137b/
